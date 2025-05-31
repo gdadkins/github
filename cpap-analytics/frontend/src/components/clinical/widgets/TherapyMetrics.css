@@ -1,0 +1,195 @@
+/* Therapy Metrics Widget */
+@import '../../../styles/clinical-design-system.css';
+
+.therapy-metrics {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+.last-updated {
+  font-size: var(--text-xs);
+  color: var(--text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-md);
+}
+
+.metric-item {
+  background: var(--clinical-bg);
+  border: 1px solid var(--clinical-border-light);
+  border-radius: var(--radius-md);
+  padding: var(--space-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.metric-item.primary {
+  grid-column: span 2;
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.05) 0%, rgba(59, 130, 246, 0.02) 100%);
+  border-color: rgba(59, 130, 246, 0.1);
+}
+
+.metric-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.metric-label {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.metric-status {
+  font-size: var(--text-xs);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.metric-value-container {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-xs);
+}
+
+.metric-value {
+  font-size: var(--text-2xl);
+  font-weight: 700;
+  color: var(--text-primary);
+  font-variant-numeric: tabular-nums;
+}
+
+.metric-unit {
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.metric-comparison {
+  display: flex;
+  gap: var(--space-xs);
+  font-size: var(--text-sm);
+}
+
+.comparison-label {
+  color: var(--text-tertiary);
+}
+
+.comparison-value {
+  color: var(--text-secondary);
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+.metric-target {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  margin-top: var(--space-xs);
+}
+
+.target-label {
+  font-size: var(--text-xs);
+  color: var(--text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.target-progress {
+  height: 4px;
+  background: var(--clinical-border-light);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  transition: width var(--transition-slow);
+}
+
+/* Event Breakdown Section */
+.event-breakdown {
+  background: var(--clinical-bg);
+  border: 1px solid var(--clinical-border-light);
+  border-radius: var(--radius-md);
+  padding: var(--space-md);
+}
+
+.breakdown-title {
+  margin: 0 0 var(--space-md) 0;
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.event-bars {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.event-bar {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.event-label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: var(--text-xs);
+  color: var(--text-secondary);
+}
+
+.event-count {
+  font-weight: 600;
+  color: var(--text-primary);
+  font-variant-numeric: tabular-nums;
+}
+
+.event-progress {
+  height: 6px;
+  background: var(--clinical-border-light);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+}
+
+.event-fill {
+  height: 100%;
+  transition: width var(--transition-slow);
+}
+
+.event-fill.central {
+  background: var(--chart-secondary);
+}
+
+.event-fill.obstructive {
+  background: var(--chart-primary);
+}
+
+.event-fill.hypopnea {
+  background: var(--chart-tertiary);
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .metrics-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .metric-item.primary {
+    grid-column: span 1;
+  }
+}

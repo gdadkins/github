@@ -1,0 +1,303 @@
+/* Clinical Login - Professional Healthcare Design */
+@import '../../styles/clinical-design-system.css';
+
+.clinical-login-container {
+  min-height: 100vh;
+  display: flex;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Background Design */
+.login-background {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, #F0F4F8 0%, #E0E7FF 100%);
+  z-index: 0;
+}
+
+.medical-pattern {
+  position: absolute;
+  inset: 0;
+  opacity: 0.03;
+  background-image: 
+    repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(59, 130, 246, 0.1) 35px, rgba(59, 130, 246, 0.1) 70px),
+    repeating-linear-gradient(-45deg, transparent, transparent 35px, rgba(139, 92, 246, 0.1) 35px, rgba(139, 92, 246, 0.1) 70px);
+}
+
+/* Main Content */
+.login-content {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-xl);
+  gap: var(--space-3xl);
+}
+
+/* Login Card */
+.login-card {
+  background: var(--clinical-surface);
+  border: 1px solid var(--clinical-border);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-lg);
+  padding: var(--space-2xl);
+  width: 100%;
+  max-width: 480px;
+}
+
+/* Header */
+.login-header {
+  text-align: center;
+  margin-bottom: var(--space-2xl);
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-md);
+}
+
+.logo-icon {
+  font-size: var(--text-3xl);
+}
+
+.logo-text {
+  font-size: var(--text-2xl);
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.025em;
+  margin: 0;
+}
+
+.tagline {
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+/* Form Styles */
+.login-form {
+  margin-bottom: var(--space-xl);
+}
+
+.form-title {
+  font-size: var(--text-xl);
+  font-weight: 600;
+  color: var(--text-primary);
+  text-align: center;
+  margin: 0 0 var(--space-xl) 0;
+}
+
+.form-group {
+  margin-bottom: var(--space-lg);
+}
+
+.form-group label {
+  display: block;
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--text-primary);
+  margin-bottom: var(--space-sm);
+}
+
+.form-input {
+  width: 100%;
+  padding: var(--space-sm) var(--space-md);
+  border: 1px solid var(--clinical-border);
+  border-radius: var(--radius-md);
+  font-size: var(--text-base);
+  color: var(--text-primary);
+  background: var(--clinical-surface);
+  transition: all var(--transition-fast);
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: var(--chart-primary);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.form-input::placeholder {
+  color: var(--text-tertiary);
+}
+
+/* Error Message */
+.error-message {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-sm) var(--space-md);
+  background: var(--status-critical-bg);
+  border: 1px solid var(--status-critical-border);
+  border-radius: var(--radius-md);
+  color: var(--status-critical);
+  font-size: var(--text-sm);
+  margin-bottom: var(--space-lg);
+}
+
+/* Submit Button */
+.submit-button {
+  width: 100%;
+  padding: var(--space-md) var(--space-lg);
+  background: var(--chart-primary);
+  color: white;
+  border: none;
+  border-radius: var(--radius-md);
+  font-size: var(--text-base);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  position: relative;
+}
+
+.submit-button:hover:not(:disabled) {
+  background: #2563EB;
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+.submit-button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.loading-spinner {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+/* Footer */
+.login-footer {
+  text-align: center;
+}
+
+.switch-mode {
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+  margin: 0 0 var(--space-lg) 0;
+}
+
+.link-button {
+  background: none;
+  border: none;
+  color: var(--chart-primary);
+  font-weight: 500;
+  cursor: pointer;
+  margin-left: var(--space-xs);
+  text-decoration: underline;
+  transition: color var(--transition-fast);
+}
+
+.link-button:hover {
+  color: #2563EB;
+}
+
+/* Demo Credentials */
+.demo-credentials {
+  background: var(--clinical-bg);
+  border: 1px solid var(--clinical-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-md);
+}
+
+.demo-title {
+  font-size: var(--text-xs);
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin: 0 0 var(--space-sm) 0;
+}
+
+.demo-info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  font-size: var(--text-sm);
+  color: var(--text-primary);
+  font-family: var(--font-mono);
+}
+
+/* Features Section */
+.features-section {
+  flex: 1;
+  max-width: 600px;
+  display: none;
+}
+
+@media (min-width: 1200px) {
+  .features-section {
+    display: block;
+  }
+}
+
+.features-section h3 {
+  font-size: var(--text-2xl);
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0 0 var(--space-xl) 0;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-xl);
+}
+
+.feature {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--clinical-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg);
+  transition: all var(--transition-base);
+}
+
+.feature:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.feature-icon {
+  font-size: var(--text-2xl);
+  margin-bottom: var(--space-md);
+}
+
+.feature h4 {
+  font-size: var(--text-base);
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0 0 var(--space-xs) 0;
+}
+
+.feature p {
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .login-content {
+    padding: var(--space-md);
+  }
+  
+  .login-card {
+    padding: var(--space-lg);
+  }
+  
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,268 @@
+/* ============================================
+   Quick Actions Floating Panel
+   ============================================ */
+
+.quick-actions {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.quick-actions-trigger {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 
+    0 8px 25px rgba(102, 126, 234, 0.3),
+    0 0 0 1px rgba(255, 255, 255, 0.1);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.quick-actions-trigger::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), transparent);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.quick-actions-trigger:hover::before {
+  opacity: 1;
+}
+
+.quick-actions-trigger:hover {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 
+    0 12px 35px rgba(102, 126, 234, 0.4),
+    0 0 0 1px rgba(255, 255, 255, 0.2);
+}
+
+.trigger-icon {
+  font-size: 1.5rem;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.3));
+}
+
+.trigger-icon-rotated {
+  transform: rotate(180deg);
+}
+
+.quick-actions-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.quick-actions-expanded .quick-actions-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.quick-action-item {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: white;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 
+    0 4px 12px rgba(0, 0, 0, 0.15),
+    0 0 0 1px rgba(255, 255, 255, 0.1);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  transform: scale(0);
+}
+
+.quick-actions-expanded .quick-action-item {
+  transform: scale(1);
+}
+
+.quick-action-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--action-color, #667eea);
+  opacity: 0;
+  transition: opacity 0.3s;
+  border-radius: 50%;
+}
+
+.quick-action-item:hover::before {
+  opacity: 0.1;
+}
+
+.quick-action-item:hover {
+  transform: translateX(-4px) scale(1.1);
+  box-shadow: 
+    0 8px 20px rgba(0, 0, 0, 0.2),
+    0 0 0 1px var(--action-color, #667eea);
+}
+
+.action-icon {
+  font-size: 1.25rem;
+  position: relative;
+  z-index: 1;
+  transition: transform 0.2s;
+}
+
+.quick-action-item:hover .action-icon {
+  transform: scale(1.1);
+}
+
+/* Tooltips */
+.quick-tooltip {
+  position: absolute;
+  background: rgba(0, 0, 0, 0.9);
+  color: white;
+  padding: 0.5rem 0.75rem;
+  border-radius: 8px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  white-space: nowrap;
+  pointer-events: none;
+  z-index: 1001;
+  animation: tooltipFadeIn 0.2s ease-out;
+}
+
+.quick-tooltip::before {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-style: solid;
+}
+
+/* Tooltip for main trigger */
+.quick-actions-trigger .quick-tooltip {
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-bottom: 0.5rem;
+}
+
+.quick-actions-trigger .quick-tooltip::before {
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 5px 5px 0 5px;
+  border-color: rgba(0, 0, 0, 0.9) transparent transparent transparent;
+}
+
+/* Tooltip for action items */
+.tooltip-left {
+  right: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  margin-right: 0.5rem;
+}
+
+.tooltip-left::before {
+  left: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  border-width: 5px 0 5px 5px;
+  border-color: transparent transparent transparent rgba(0, 0, 0, 0.9);
+}
+
+@keyframes tooltipFadeIn {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .quick-actions {
+    bottom: 1rem;
+    right: 1rem;
+  }
+  
+  .quick-actions-trigger {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .trigger-icon {
+    font-size: 1.25rem;
+  }
+  
+  .quick-action-item {
+    width: 44px;
+    height: 44px;
+  }
+  
+  .action-icon {
+    font-size: 1.125rem;
+  }
+}
+
+/* Pulse animation for attention */
+@keyframes actionPulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+  }
+}
+
+.quick-actions-trigger {
+  animation: actionPulse 3s ease-in-out infinite;
+}
+
+.quick-actions-expanded .quick-actions-trigger {
+  animation: none;
+}
+
+/* Staggered animation for menu items */
+.quick-actions-expanded .quick-action-item:nth-child(1) {
+  transition-delay: 0ms;
+}
+
+.quick-actions-expanded .quick-action-item:nth-child(2) {
+  transition-delay: 50ms;
+}
+
+.quick-actions-expanded .quick-action-item:nth-child(3) {
+  transition-delay: 100ms;
+}
+
+.quick-actions-expanded .quick-action-item:nth-child(4) {
+  transition-delay: 150ms;
+}

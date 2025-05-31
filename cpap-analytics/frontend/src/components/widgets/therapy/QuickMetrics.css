@@ -1,0 +1,272 @@
+.quick-metrics {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.quick-metrics-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.quick-metrics-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #1f2937;
+  margin: 0;
+}
+
+.date-range-badge {
+  padding: 4px 12px;
+  background-color: #e0e7ff;
+  color: #4338ca;
+  font-size: 0.813rem;
+  font-weight: 500;
+  border-radius: 20px;
+}
+
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  flex: 1;
+}
+
+.metric-item {
+  position: relative;
+  padding: 20px;
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  transition: all 0.3s ease;
+  cursor: default;
+  overflow: hidden;
+}
+
+.metric-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  transition: all 0.3s ease;
+}
+
+.metric-item.excellent::before {
+  background: #10b981;
+}
+
+.metric-item.good::before {
+  background: #3b82f6;
+}
+
+.metric-item.warning::before {
+  background: #f59e0b;
+}
+
+.metric-item.poor::before {
+  background: #ef4444;
+}
+
+.metric-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+.metric-icon {
+  font-size: 2rem;
+  margin-bottom: 12px;
+  filter: grayscale(0.2);
+}
+
+.metric-content {
+  text-align: center;
+}
+
+.metric-value {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #1f2937;
+  line-height: 1.2;
+  margin-bottom: 4px;
+}
+
+.metric-label {
+  font-size: 0.875rem;
+  color: #6b7280;
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+.metric-trend {
+  font-size: 0.813rem;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.metric-trend:contains('↑') {
+  color: #10b981;
+}
+
+.metric-trend:contains('↓') {
+  color: #ef4444;
+}
+
+.metric-trend:contains('→') {
+  color: #6b7280;
+}
+
+.metric-tooltip {
+  position: absolute;
+  bottom: -40px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #1f2937;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+
+.metric-tooltip::before {
+  content: '';
+  position: absolute;
+  top: -4px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-bottom: 4px solid #1f2937;
+}
+
+.metric-item:hover .metric-tooltip {
+  opacity: 1;
+  bottom: -32px;
+}
+
+.quick-metrics-footer {
+  margin-top: 24px;
+  display: flex;
+  justify-content: center;
+}
+
+.view-details-button {
+  padding: 10px 24px;
+  background-color: #3b82f6;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.view-details-button:hover {
+  background-color: #2563eb;
+  transform: translateX(2px);
+}
+
+/* Tablet Responsive Design */
+@media (max-width: 1024px) {
+  .metrics-grid {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 16px;
+  }
+  
+  .metric-value {
+    font-size: 1.75rem;
+  }
+}
+
+/* Mobile Responsive Design */
+@media (max-width: 640px) {
+  .quick-metrics-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .metrics-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+  
+  .metric-item {
+    padding: 16px;
+  }
+  
+  .metric-icon {
+    font-size: 1.5rem;
+    margin-bottom: 8px;
+  }
+  
+  .metric-value {
+    font-size: 1.5rem;
+  }
+  
+  .metric-label {
+    font-size: 0.813rem;
+  }
+  
+  .metric-trend {
+    font-size: 0.75rem;
+  }
+  
+  .metric-tooltip {
+    display: none;
+  }
+  
+  .view-details-button {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* Small Mobile Design */
+@media (max-width: 480px) {
+  .metrics-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .metric-item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    text-align: left;
+  }
+  
+  .metric-icon {
+    font-size: 2rem;
+    margin-bottom: 0;
+  }
+  
+  .metric-content {
+    text-align: left;
+    flex: 1;
+  }
+  
+  .metric-value {
+    font-size: 1.25rem;
+    margin-bottom: 2px;
+  }
+  
+  .metric-label {
+    font-size: 0.75rem;
+  }
+}

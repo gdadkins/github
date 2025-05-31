@@ -1,0 +1,182 @@
+/* Event Patterns Widget */
+@import '../../../styles/clinical-design-system.css';
+
+.event-patterns {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+.total-events {
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.event-distribution h4,
+.time-patterns h4,
+.pattern-insights h4 {
+  margin: 0 0 var(--space-md) 0;
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--text-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.chart-container {
+  position: relative;
+  margin-bottom: var(--space-md);
+}
+
+.chart-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  pointer-events: none;
+}
+
+.center-value {
+  font-size: var(--text-2xl);
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1;
+}
+
+.center-label {
+  font-size: var(--text-xs);
+  color: var(--text-secondary);
+  margin-top: var(--space-xs);
+}
+
+.event-legend {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.legend-color {
+  width: 12px;
+  height: 12px;
+  border-radius: var(--radius-sm);
+  flex-shrink: 0;
+}
+
+.legend-label {
+  font-size: var(--text-sm);
+  color: var(--text-primary);
+  flex: 1;
+}
+
+.legend-value {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--text-primary);
+  font-variant-numeric: tabular-nums;
+}
+
+.time-patterns {
+  background: var(--clinical-bg);
+  border: 1px solid var(--clinical-border-light);
+  border-radius: var(--radius-md);
+  padding: var(--space-md);
+}
+
+.time-bars {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.time-bar {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.bar-label {
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+}
+
+.bar-container {
+  height: 20px;
+  background: var(--clinical-border-light);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+}
+
+.bar-fill {
+  height: 100%;
+  background: var(--clinical-accent);
+  transition: width var(--transition-slow);
+}
+
+.bar-fill.high {
+  background: var(--status-warning);
+}
+
+.bar-value {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--text-primary);
+  text-align: right;
+}
+
+.pattern-insights {
+  background: var(--clinical-accent-bg);
+  border: 1px solid var(--clinical-accent-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-md);
+}
+
+.insight-text {
+  margin: 0;
+  font-size: var(--text-sm);
+  color: var(--text-primary);
+  line-height: 1.6;
+}
+
+/* Custom Tooltip */
+.custom-tooltip {
+  background: var(--clinical-bg-secondary);
+  border: 1px solid var(--clinical-border);
+  border-radius: var(--radius-sm);
+  padding: var(--space-sm);
+  box-shadow: var(--shadow-lg);
+}
+
+.tooltip-label {
+  margin: 0 0 var(--space-xs) 0;
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.tooltip-value {
+  margin: 0;
+  font-size: var(--text-lg);
+  font-weight: 700;
+  color: var(--clinical-accent);
+}
+
+.tooltip-count {
+  margin: var(--space-xs) 0 0 0;
+  font-size: var(--text-xs);
+  color: var(--text-secondary);
+}
+
+/* Chart colors */
+:root {
+  --chart-central: #6366f1;
+  --chart-obstructive: #ec4899;
+  --chart-hypopnea: #f59e0b;
+}

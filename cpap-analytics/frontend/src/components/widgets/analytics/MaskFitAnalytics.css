@@ -1,0 +1,394 @@
+.mask-fit-analytics-widget {
+  background: var(--card-background, #ffffff);
+  border-radius: 16px;
+  box-shadow: var(--card-shadow, 0 4px 6px -1px rgba(0, 0, 0, 0.1));
+  padding: 24px;
+  transition: all 0.3s ease;
+}
+
+.widget-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.header-content {
+  flex: 1;
+}
+
+.widget-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-primary, #1f2937);
+  margin: 0 0 4px;
+}
+
+.widget-subtitle {
+  font-size: 0.875rem;
+  color: var(--text-secondary, #6b7280);
+  margin: 0;
+}
+
+.time-selector {
+  display: flex;
+  gap: 4px;
+  background-color: #f3f4f6;
+  border-radius: 8px;
+  padding: 4px;
+}
+
+.time-button {
+  padding: 6px 12px;
+  border: none;
+  background: transparent;
+  color: #6b7280;
+  font-size: 0.875rem;
+  font-weight: 500;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.time-button.active {
+  background-color: white;
+  color: #1f2937;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.time-button:hover:not(.active) {
+  color: #374151;
+}
+
+.fit-score-section {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 32px;
+  margin-bottom: 32px;
+  align-items: center;
+}
+
+.score-circle {
+  position: relative;
+}
+
+.score-svg {
+  width: 200px;
+  height: 200px;
+}
+
+.score-circle-fill {
+  transition: stroke-dasharray 1s ease;
+}
+
+.score-text {
+  font-size: 48px;
+  font-weight: 700;
+  fill: #1f2937;
+}
+
+.score-label {
+  font-size: 16px;
+  font-weight: 500;
+  fill: #6b7280;
+}
+
+.mask-info {
+  background-color: #f9fafb;
+  border-radius: 12px;
+  padding: 20px;
+}
+
+.info-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #1f2937;
+  margin: 0 0 16px;
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.info-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.info-label {
+  font-size: 0.875rem;
+  color: #6b7280;
+}
+
+.info-value {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #1f2937;
+}
+
+.leak-chart-section {
+  margin-bottom: 24px;
+}
+
+.section-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #1f2937;
+  margin: 0 0 16px;
+}
+
+.current-session-alert {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px;
+  border-radius: 12px;
+  margin-bottom: 24px;
+  background-color: #f0f9ff;
+  border: 1px solid #3b82f6;
+}
+
+.alert-icon {
+  font-size: 24px;
+  flex-shrink: 0;
+}
+
+.alert-content {
+  flex: 1;
+}
+
+.alert-title {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #1e40af;
+  margin: 0 0 4px;
+}
+
+.alert-text {
+  font-size: 0.875rem;
+  color: #1e40af;
+  margin: 0;
+}
+
+.recommendations-section {
+  margin-bottom: 24px;
+}
+
+.recommendations-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.recommendation-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px;
+  border-radius: 12px;
+  border: 1px solid;
+  transition: all 0.2s ease;
+}
+
+.recommendation-card.high {
+  background-color: #fef2f2;
+  border-color: #fecaca;
+}
+
+.recommendation-card.medium {
+  background-color: #fffbeb;
+  border-color: #fde68a;
+}
+
+.recommendation-card.low {
+  background-color: #eff6ff;
+  border-color: #bfdbfe;
+}
+
+.rec-icon {
+  font-size: 24px;
+  flex-shrink: 0;
+}
+
+.rec-content {
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+
+.rec-text {
+  font-size: 0.875rem;
+  color: #374151;
+  margin: 0;
+  flex: 1;
+}
+
+.rec-action {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.813rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.recommendation-card.high .rec-action {
+  background-color: #ef4444;
+  color: white;
+}
+
+.recommendation-card.medium .rec-action {
+  background-color: #f59e0b;
+  color: white;
+}
+
+.recommendation-card.low .rec-action {
+  background-color: #3b82f6;
+  color: white;
+}
+
+.rec-action:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.fitting-tips {
+  background-color: #f9fafb;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.tips-toggle {
+  width: 100%;
+  padding: 16px;
+  border: none;
+  background: transparent;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  font-size: 0.938rem;
+  font-weight: 500;
+  color: #1f2937;
+  transition: background-color 0.2s ease;
+}
+
+.tips-toggle:hover {
+  background-color: #f3f4f6;
+}
+
+.toggle-icon {
+  transition: transform 0.3s ease;
+  font-size: 12px;
+}
+
+.toggle-icon.open {
+  transform: rotate(180deg);
+}
+
+.tips-content {
+  padding: 0 16px 16px;
+  animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.tips-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 16px;
+}
+
+.tip-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin-bottom: 8px;
+  font-size: 0.875rem;
+  color: #4b5563;
+}
+
+.tip-bullet {
+  color: #3b82f6;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.tips-actions {
+  display: flex;
+  gap: 12px;
+}
+
+.tips-button {
+  flex: 1;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.tips-button:not(.secondary) {
+  background-color: #3b82f6;
+  color: white;
+}
+
+.tips-button.secondary {
+  background-color: transparent;
+  color: #3b82f6;
+  border: 1px solid #3b82f6;
+}
+
+.tips-button:hover {
+  transform: translateY(-1px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .fit-score-section {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .score-circle {
+    margin: 0 auto;
+  }
+
+  .info-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .rec-content {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .rec-action {
+    align-self: flex-start;
+  }
+
+  .tips-actions {
+    flex-direction: column;
+  }
+}

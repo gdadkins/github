@@ -1,0 +1,241 @@
+.therapy-effectiveness-widget {
+  background: var(--card-background, #ffffff);
+  border-radius: 16px;
+  box-shadow: var(--card-shadow, 0 4px 6px -1px rgba(0, 0, 0, 0.1));
+  padding: 24px;
+  transition: all 0.3s ease;
+}
+
+.therapy-effectiveness-widget:hover {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+}
+
+.widget-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.widget-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-primary, #1f2937);
+  margin: 0;
+}
+
+.trend-indicator {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.trend-indicator.improving {
+  background-color: #d1fae5;
+  color: #065f46;
+}
+
+.trend-indicator.stable {
+  background-color: #e0e7ff;
+  color: #3730a3;
+}
+
+.trend-indicator.declining {
+  background-color: #fee2e2;
+  color: #991b1b;
+}
+
+.score-container {
+  display: grid;
+  gap: 32px;
+}
+
+.main-score {
+  text-align: center;
+  max-width: 200px;
+  margin: 0 auto;
+}
+
+.main-score .CircularProgressbar {
+  width: 180px;
+  height: 180px;
+  margin: 0 auto 16px;
+}
+
+.score-label {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--text-primary, #1f2937);
+  margin: 0 0 8px;
+}
+
+.score-description {
+  font-size: 0.875rem;
+  color: var(--text-secondary, #6b7280);
+  margin: 0;
+  line-height: 1.5;
+}
+
+.component-scores {
+  background-color: var(--bg-secondary, #f9fafb);
+  border-radius: 12px;
+  padding: 20px;
+}
+
+.components-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary, #1f2937);
+  margin: 0 0 16px;
+}
+
+.component-item {
+  margin-bottom: 16px;
+}
+
+.component-item:last-child {
+  margin-bottom: 0;
+}
+
+.component-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.component-name {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-secondary, #4b5563);
+}
+
+.component-value {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-primary, #1f2937);
+}
+
+.component-bar {
+  height: 8px;
+  background-color: #e5e7eb;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.component-fill {
+  height: 100%;
+  border-radius: 4px;
+  transition: width 0.6s ease;
+}
+
+.recommendations-section {
+  background-color: #fef3c7;
+  border: 1px solid #fcd34d;
+  border-radius: 12px;
+  padding: 16px;
+}
+
+.recommendations-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #92400e;
+  margin: 0 0 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.recommendations-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.recommendation-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 12px;
+  font-size: 0.875rem;
+  color: #78350f;
+  line-height: 1.5;
+}
+
+.recommendation-item:last-child {
+  margin-bottom: 0;
+}
+
+.recommendation-icon {
+  flex-shrink: 0;
+  font-size: 1rem;
+}
+
+.recommendation-text {
+  flex: 1;
+}
+
+.widget-footer {
+  display: flex;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.detail-button,
+.share-button {
+  flex: 1;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.detail-button {
+  background-color: var(--primary-color, #3b82f6);
+  color: white;
+}
+
+.detail-button:hover {
+  background-color: var(--primary-hover, #2563eb);
+  transform: translateY(-1px);
+}
+
+.share-button {
+  background-color: transparent;
+  color: var(--primary-color, #3b82f6);
+  border: 1px solid var(--primary-color, #3b82f6);
+}
+
+.share-button:hover {
+  background-color: var(--primary-light, #eff6ff);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .therapy-effectiveness-widget {
+    padding: 16px;
+  }
+
+  .widget-header {
+    flex-direction: column;
+    gap: 12px;
+    align-items: flex-start;
+  }
+
+  .main-score .CircularProgressbar {
+    width: 150px;
+    height: 150px;
+  }
+
+  .widget-footer {
+    flex-direction: column;
+  }
+}

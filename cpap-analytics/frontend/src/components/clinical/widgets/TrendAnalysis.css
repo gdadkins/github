@@ -1,0 +1,141 @@
+/* Trend Analysis Widget */
+@import '../../../styles/clinical-design-system.css';
+
+.trend-analysis {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+.trend-selector {
+  background: var(--clinical-bg);
+  border: 1px solid var(--clinical-border);
+  border-radius: var(--radius-sm);
+  padding: var(--space-xs) var(--space-sm);
+  font-size: var(--text-sm);
+  color: var(--text-primary);
+  cursor: pointer;
+}
+
+.trend-selector:focus {
+  outline: 2px solid var(--clinical-accent);
+  outline-offset: 2px;
+}
+
+.trend-metrics {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: var(--space-md);
+}
+
+.metric-card {
+  background: var(--clinical-bg);
+  border: 1px solid var(--clinical-border-light);
+  border-radius: var(--radius-md);
+  padding: var(--space-md);
+}
+
+.metric-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-sm);
+}
+
+.metric-label {
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.trend-indicator {
+  font-size: var(--text-lg);
+  font-weight: 700;
+}
+
+.trend-indicator.improving {
+  color: var(--status-optimal);
+}
+
+.trend-indicator.worsening {
+  color: var(--status-critical);
+}
+
+.trend-indicator.stable {
+  color: var(--text-tertiary);
+}
+
+.metric-value {
+  font-size: var(--text-2xl);
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1;
+}
+
+.metric-unit {
+  font-size: var(--text-sm);
+  font-weight: 400;
+  color: var(--text-secondary);
+  margin-left: var(--space-xs);
+}
+
+.trend-chart {
+  background: var(--clinical-bg);
+  border: 1px solid var(--clinical-border-light);
+  border-radius: var(--radius-md);
+  padding: var(--space-lg);
+}
+
+.trend-insights {
+  background: var(--clinical-accent-bg);
+  border: 1px solid var(--clinical-accent-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-md);
+}
+
+.trend-insights h4 {
+  margin: 0 0 var(--space-md) 0;
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--clinical-accent);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.trend-insights ul {
+  margin: 0;
+  padding-left: var(--space-lg);
+  list-style-type: none;
+}
+
+.trend-insights li {
+  font-size: var(--text-sm);
+  color: var(--text-primary);
+  line-height: 1.6;
+  margin-bottom: var(--space-sm);
+  padding-left: var(--space-md);
+  position: relative;
+}
+
+.trend-insights li:last-child {
+  margin-bottom: 0;
+}
+
+.trend-insights li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  font-weight: 700;
+}
+
+.insight.positive::before {
+  color: var(--status-optimal);
+}
+
+.insight.negative::before {
+  color: var(--status-critical);
+}
+
+.insight.warning::before {
+  color: var(--status-warning);
+}

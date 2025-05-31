@@ -1,0 +1,78 @@
+{
+  "title": "Claude Code Documentation",
+  "version": "latest",
+  "last_updated": "2025-01-28",
+  "source": "https://docs.anthropic.com/en/docs/claude-code",
+  "sections": [
+    {
+      "name": "Overview",
+      "file": "overview.md",
+      "description": "Introduction to Claude Code, installation, and key features"
+    },
+    {
+      "name": "CLI Usage",
+      "file": "cli-usage.md",
+      "description": "Commands, flags, slash commands, and interaction modes"
+    },
+    {
+      "name": "Memory Management",
+      "file": "memory.md",
+      "description": "Project and user memory, CLAUDE.md files, and best practices"
+    },
+    {
+      "name": "Settings",
+      "file": "settings.md",
+      "description": "Configuration hierarchy, permissions, and environment variables"
+    },
+    {
+      "name": "Security",
+      "file": "security.md",
+      "description": "Permission system, tools, safety features, and best practices"
+    },
+    {
+      "name": "Costs",
+      "file": "costs.md",
+      "description": "Pricing, usage tracking, and cost optimization strategies"
+    },
+    {
+      "name": "Tutorials",
+      "file": "tutorials.md",
+      "description": "Common workflows, extended thinking, and practical examples"
+    },
+    {
+      "name": "Troubleshooting",
+      "file": "troubleshooting.md",
+      "description": "Common issues, error messages, and solutions"
+    }
+  ],
+  "key_concepts": {
+    "tools": {
+      "read_only": ["Glob", "Grep", "LS", "Read", "NotebookRead"],
+      "approval_required": ["Bash", "Edit", "Write", "NotebookEdit", "WebFetch"],
+      "special": ["Agent", "Task"]
+    },
+    "memory_files": {
+      "project": "./CLAUDE.md",
+      "user": "~/.claude/CLAUDE.md"
+    },
+    "configuration": {
+      "user_settings": "~/.claude/settings.json",
+      "project_settings": ".claude/settings.json",
+      "local_settings": ".claude/settings.local.json"
+    },
+    "commands": {
+      "basic": ["claude", "claude -p", "claude -c", "claude config", "claude update"],
+      "slash": ["/help", "/bug", "/clear", "/config", "/cost", "/login", "/memory", "/model", "/review", "/vim", "/compact", "/doctor", "/logout"]
+    }
+  },
+  "quick_reference": {
+    "installation": "npm install -g @anthropic-ai/claude-code",
+    "start_interactive": "claude",
+    "one_shot": "claude -p \"your query\"",
+    "continue_conversation": "claude -c",
+    "check_costs": "/cost",
+    "reduce_context": "/compact",
+    "clear_history": "/clear",
+    "view_settings": "/config"
+  }
+}

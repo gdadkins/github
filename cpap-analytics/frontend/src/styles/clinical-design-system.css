@@ -1,0 +1,308 @@
+/* Clinical Design System for CPAP Analytics
+ * Professional healthcare-focused design tokens
+ */
+
+:root {
+  /* Clinical Color Palette */
+  --clinical-white: #FFFFFF;
+  --clinical-bg: #F8FAFB;
+  --clinical-surface: #FFFFFF;
+  --clinical-border: #E5E7EB;
+  --clinical-border-light: #F3F4F6;
+  
+  /* Text Colors */
+  --text-primary: #1F2937;
+  --text-secondary: #6B7280;
+  --text-tertiary: #9CA3AF;
+  --text-muted: #D1D5DB;
+  
+  /* Clinical Status Colors */
+  --status-optimal: #059669;
+  --status-optimal-bg: #D1FAE5;
+  --status-optimal-border: #34D399;
+  
+  --status-good: #3B82F6;
+  --status-good-bg: #DBEAFE;
+  --status-good-border: #60A5FA;
+  
+  --status-warning: #F59E0B;
+  --status-warning-bg: #FEF3C7;
+  --status-warning-border: #FCD34D;
+  
+  --status-critical: #DC2626;
+  --status-critical-bg: #FEE2E2;
+  --status-critical-border: #F87171;
+  
+  /* Compliance Colors */
+  --compliance-excellent: #059669;
+  --compliance-good: #10B981;
+  --compliance-fair: #F59E0B;
+  --compliance-poor: #EF4444;
+  --compliance-none: #6B7280;
+  
+  /* Data Visualization Colors */
+  --chart-primary: #3B82F6;
+  --chart-secondary: #8B5CF6;
+  --chart-tertiary: #06B6D4;
+  --chart-quaternary: #10B981;
+  --chart-highlight: #F59E0B;
+  
+  /* Spacing System */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+  --space-3xl: 4rem;
+  
+  /* Typography */
+  --font-clinical: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --font-mono: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, monospace;
+  
+  /* Font Sizes */
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.25rem;
+  --text-2xl: 1.5rem;
+  --text-3xl: 1.875rem;
+  --text-4xl: 2.25rem;
+  
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+  --shadow-clinical: 0 0 0 1px var(--clinical-border), 0 1px 3px 0 rgb(0 0 0 / 0.05);
+  
+  /* Border Radius */
+  --radius-sm: 0.25rem;
+  --radius-md: 0.375rem;
+  --radius-lg: 0.5rem;
+  --radius-xl: 0.75rem;
+  
+  /* Transitions */
+  --transition-fast: 150ms ease;
+  --transition-base: 200ms ease;
+  --transition-slow: 300ms ease;
+  
+  /* Z-Index Scale */
+  --z-dropdown: 50;
+  --z-modal: 100;
+  --z-notification: 150;
+  --z-tooltip: 200;
+}
+
+/* Base Styles */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-clinical);
+  color: var(--text-primary);
+  background: var(--clinical-bg);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Clinical Card Component */
+.clinical-card {
+  background: var(--clinical-surface);
+  border: 1px solid var(--clinical-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg);
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-base);
+}
+
+.clinical-card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-1px);
+}
+
+/* Metric Display */
+.metric-card {
+  background: var(--clinical-surface);
+  border: 1px solid var(--clinical-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg);
+  position: relative;
+  overflow: hidden;
+}
+
+.metric-value {
+  font-size: var(--text-3xl);
+  font-weight: 600;
+  line-height: 1;
+  color: var(--text-primary);
+  font-variant-numeric: tabular-nums;
+}
+
+.metric-label {
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+  margin-top: var(--space-xs);
+}
+
+.metric-trend {
+  font-size: var(--text-sm);
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  margin-top: var(--space-sm);
+}
+
+/* Status Indicators */
+.status-indicator {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: var(--radius-md);
+  font-size: var(--text-xs);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.025em;
+}
+
+.status-optimal {
+  color: var(--status-optimal);
+  background: var(--status-optimal-bg);
+  border: 1px solid var(--status-optimal-border);
+}
+
+.status-good {
+  color: var(--status-good);
+  background: var(--status-good-bg);
+  border: 1px solid var(--status-good-border);
+}
+
+.status-warning {
+  color: var(--status-warning);
+  background: var(--status-warning-bg);
+  border: 1px solid var(--status-warning-border);
+}
+
+.status-critical {
+  color: var(--status-critical);
+  background: var(--status-critical-bg);
+  border: 1px solid var(--status-critical-border);
+}
+
+/* Clinical Buttons */
+.btn-clinical {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+  padding: var(--space-sm) var(--space-lg);
+  border-radius: var(--radius-md);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  transition: all var(--transition-fast);
+  cursor: pointer;
+  border: 1px solid transparent;
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+
+.btn-clinical:focus-visible {
+  outline: 2px solid var(--chart-primary);
+  outline-offset: 2px;
+}
+
+.btn-primary {
+  background: var(--chart-primary);
+  color: white;
+}
+
+.btn-primary:hover {
+  background: #2563EB;
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+.btn-secondary {
+  background: var(--clinical-surface);
+  color: var(--text-primary);
+  border-color: var(--clinical-border);
+}
+
+.btn-secondary:hover {
+  background: var(--clinical-bg);
+  border-color: var(--text-secondary);
+}
+
+/* Data Grid */
+.data-grid {
+  display: grid;
+  gap: var(--space-lg);
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+/* Clinical Typography */
+.heading-clinical {
+  color: var(--text-primary);
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.text-muted {
+  color: var(--text-secondary);
+}
+
+/* Compliance Visualization */
+.compliance-bar {
+  height: 8px;
+  background: var(--clinical-border-light);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  position: relative;
+}
+
+.compliance-fill {
+  height: 100%;
+  transition: width var(--transition-slow);
+}
+
+.compliance-fill.excellent {
+  background: var(--compliance-excellent);
+}
+
+.compliance-fill.good {
+  background: var(--compliance-good);
+}
+
+.compliance-fill.fair {
+  background: var(--compliance-fair);
+}
+
+.compliance-fill.poor {
+  background: var(--compliance-poor);
+}
+
+/* Loading States */
+.skeleton {
+  background: linear-gradient(90deg, var(--clinical-border-light) 25%, var(--clinical-bg) 50%, var(--clinical-border-light) 75%);
+  background-size: 200% 100%;
+  animation: skeleton-loading 1.5s ease-in-out infinite;
+}
+
+@keyframes skeleton-loading {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .data-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .metric-value {
+    font-size: var(--text-2xl);
+  }
+}

@@ -1,0 +1,185 @@
+/* Compliance Tracker Widget */
+@import '../../../styles/clinical-design-system.css';
+
+.compliance-tracker {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+.widget-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.widget-title {
+  font-size: var(--text-lg);
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.compliance-badge {
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: var(--radius-md);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.compliance-main {
+  display: flex;
+  gap: var(--space-lg);
+  align-items: center;
+}
+
+.compliance-percentage {
+  display: flex;
+  align-items: baseline;
+  gap: 2px;
+}
+
+.percentage-value {
+  font-size: var(--text-4xl);
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+
+.percentage-symbol {
+  font-size: var(--text-2xl);
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.compliance-details {
+  flex: 1;
+}
+
+.compliance-text {
+  margin: 0 0 var(--space-xs) 0;
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+}
+
+.streak-text {
+  margin: 0;
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+}
+
+.streak-text strong {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.compliance-bar-container {
+  position: relative;
+  margin-top: var(--space-xs);
+}
+
+.compliance-markers {
+  position: relative;
+  height: 20px;
+  margin-top: var(--space-xs);
+}
+
+.marker {
+  position: absolute;
+  transform: translateX(-50%);
+}
+
+.marker::before {
+  content: '';
+  position: absolute;
+  top: -16px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1px;
+  height: 12px;
+  background: var(--text-tertiary);
+}
+
+.marker-label {
+  font-size: 10px;
+  color: var(--text-tertiary);
+  white-space: nowrap;
+}
+
+.insurance-status {
+  background: var(--clinical-bg);
+  border: 1px solid var(--clinical-border-light);
+  border-radius: var(--radius-md);
+  padding: var(--space-md);
+}
+
+.status-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--space-xs) 0;
+}
+
+.status-row:not(:last-child) {
+  border-bottom: 1px solid var(--clinical-border-light);
+}
+
+.status-label {
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+}
+
+.status-value {
+  font-size: var(--text-sm);
+  font-weight: 600;
+}
+
+.status-value.met {
+  color: var(--status-optimal);
+}
+
+.status-value.not-met {
+  color: var(--status-critical);
+}
+
+.compliance-tips {
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.05) 0%, rgba(59, 130, 246, 0.02) 100%);
+  border: 1px solid rgba(59, 130, 246, 0.1);
+  border-radius: var(--radius-md);
+  padding: var(--space-md);
+}
+
+.tips-title {
+  margin: 0 0 var(--space-sm) 0;
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.tips-list {
+  margin: 0;
+  padding-left: var(--space-lg);
+  list-style-type: disc;
+}
+
+.tips-list li {
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin-bottom: var(--space-xs);
+}
+
+.tips-list li:last-child {
+  margin-bottom: 0;
+}
+
+.tips-excellent {
+  margin: 0;
+  font-size: var(--text-sm);
+  color: var(--status-optimal);
+  font-weight: 500;
+}
