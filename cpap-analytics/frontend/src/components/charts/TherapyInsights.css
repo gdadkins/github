@@ -1,0 +1,275 @@
+/* ============================================
+   Therapy Insights - AI-Powered Recommendations
+   ============================================ */
+
+.therapy-insights-container {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(16px);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.therapy-insights-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.therapy-insights-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #1e293b;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.therapy-insights-icon {
+  width: 1.25rem;
+  height: 1.25rem;
+  color: #f59e0b;
+}
+
+.therapy-insights-badge {
+  background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+  color: white;
+  font-size: 0.75rem;
+  font-weight: 500;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.375rem;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.therapy-insights-badge-icon {
+  width: 0.875rem;
+  height: 0.875rem;
+}
+
+.therapy-insights-summary {
+  background: linear-gradient(135deg, #eff6ff 0%, #f0f9ff 100%);
+  border-radius: 0.75rem;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+  border: 1px solid rgba(59, 130, 246, 0.2);
+}
+
+.therapy-insights-summary-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #1e40af;
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+}
+
+.therapy-insights-summary-icon {
+  width: 1rem;
+  height: 1rem;
+}
+
+.therapy-insights-summary-text {
+  font-size: 0.875rem;
+  color: #1e40af;
+  line-height: 1.5;
+}
+
+.therapy-insights-sections {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.therapy-insights-section {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  padding-bottom: 1.5rem;
+}
+
+.therapy-insights-section:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.therapy-insights-section-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.therapy-insights-section-icon {
+  width: 1rem;
+  height: 1rem;
+}
+
+.therapy-insights-section-icon.positive {
+  color: #10b981;
+}
+
+.therapy-insights-section-icon.warning {
+  color: #f59e0b;
+}
+
+.therapy-insights-section-icon.info {
+  color: #3b82f6;
+}
+
+.therapy-insights-recommendations {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.therapy-insights-recommendation {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+  padding: 0.75rem;
+  background: rgba(248, 250, 252, 0.8);
+  border-radius: 0.5rem;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.therapy-insights-recommendation:last-child {
+  margin-bottom: 0;
+}
+
+.therapy-insights-recommendation-icon {
+  width: 1.25rem;
+  height: 1.25rem;
+  flex-shrink: 0;
+  margin-top: 0.125rem;
+}
+
+.therapy-insights-recommendation-icon.high {
+  color: #ef4444;
+}
+
+.therapy-insights-recommendation-icon.medium {
+  color: #f59e0b;
+}
+
+.therapy-insights-recommendation-icon.low {
+  color: #3b82f6;
+}
+
+.therapy-insights-recommendation-content {
+  flex: 1;
+}
+
+.therapy-insights-recommendation-title {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #374151;
+  margin-bottom: 0.25rem;
+}
+
+.therapy-insights-recommendation-description {
+  font-size: 0.8125rem;
+  color: #6b7280;
+  line-height: 1.4;
+}
+
+.therapy-insights-metric {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.therapy-insights-metric:last-child {
+  border-bottom: none;
+}
+
+.therapy-insights-metric-label {
+  font-size: 0.875rem;
+  color: #6b7280;
+}
+
+.therapy-insights-metric-value {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #374151;
+}
+
+.therapy-insights-metric-value.excellent {
+  color: #10b981;
+}
+
+.therapy-insights-metric-value.good {
+  color: #3b82f6;
+}
+
+.therapy-insights-metric-value.warning {
+  color: #f59e0b;
+}
+
+.therapy-insights-metric-value.danger {
+  color: #ef4444;
+}
+
+.therapy-insights-upgrade {
+  background: linear-gradient(135deg, #fef3e2 0%, #fef9e7 100%);
+  border-radius: 0.75rem;
+  padding: 1rem;
+  margin-top: 1.5rem;
+  border: 1px solid rgba(245, 158, 11, 0.2);
+  text-align: center;
+}
+
+.therapy-insights-upgrade-title {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #92400e;
+  margin-bottom: 0.5rem;
+}
+
+.therapy-insights-upgrade-description {
+  font-size: 0.8125rem;
+  color: #92400e;
+  margin-bottom: 0.75rem;
+}
+
+.therapy-insights-upgrade-button {
+  background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 0.375rem;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.therapy-insights-upgrade-button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(245, 158, 11, 0.4);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .therapy-insights-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  
+  .therapy-insights-recommendation {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .therapy-insights-recommendation-icon {
+    margin-top: 0;
+  }
+}

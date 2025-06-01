@@ -114,3 +114,7 @@ dmypy.json
 Thumbs.db
 ehthumbs.db
 Desktop.ini
+
+# Debug and temporary tracking files
+*_CALLED.txt
+ANALYTICS_CALLED.txt

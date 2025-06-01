@@ -1,0 +1,25 @@
+/* Loading Spinner Component Styles */
+.loading-spinner-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.loading-spinner {
+  width: 8rem;
+  height: 8rem;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  border-bottom-color: var(--color-primary-500);
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

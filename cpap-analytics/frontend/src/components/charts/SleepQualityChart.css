@@ -1,0 +1,282 @@
+/* ============================================
+   Sleep Quality Chart - Quality Metrics Visualization
+   ============================================ */
+
+.sleep-quality-container {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(16px);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.sleep-quality-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.sleep-quality-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #1e293b;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.sleep-quality-icon {
+  width: 1.25rem;
+  height: 1.25rem;
+  color: #8b5cf6;
+}
+
+.sleep-quality-metrics {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.sleep-quality-metric {
+  text-align: center;
+  flex: 1;
+}
+
+.sleep-quality-metric-value {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #1e293b;
+}
+
+.sleep-quality-metric-value.excellent {
+  color: #10b981;
+}
+
+.sleep-quality-metric-value.good {
+  color: #3b82f6;
+}
+
+.sleep-quality-metric-value.fair {
+  color: #f59e0b;
+}
+
+.sleep-quality-metric-value.poor {
+  color: #ef4444;
+}
+
+.sleep-quality-metric-label {
+  font-size: 0.75rem;
+  color: #64748b;
+  margin-top: 0.25rem;
+}
+
+.sleep-quality-chart {
+  width: 100%;
+  height: 300px;
+  margin-bottom: 1rem;
+}
+
+.sleep-quality-legend {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+.sleep-quality-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  color: #64748b;
+}
+
+.sleep-quality-legend-color {
+  width: 0.75rem;
+  height: 0.75rem;
+  border-radius: 0.125rem;
+}
+
+.sleep-quality-legend-color.quality-line {
+  background: #8b5cf6;
+}
+
+.sleep-quality-legend-color.duration-line {
+  background: #06b6d4;
+}
+
+.sleep-quality-legend-color.efficiency-line {
+  background: #10b981;
+}
+
+.sleep-quality-insights {
+  background: linear-gradient(135deg, #fef3e2 0%, #fef9e7 100%);
+  border-radius: 0.75rem;
+  padding: 1rem;
+  border: 1px solid rgba(245, 158, 11, 0.2);
+}
+
+.sleep-quality-insights-title {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #92400e;
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+}
+
+.sleep-quality-insights-icon {
+  width: 1rem;
+  height: 1rem;
+}
+
+.sleep-quality-insights-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sleep-quality-insights-item {
+  font-size: 0.8125rem;
+  color: #92400e;
+  margin-bottom: 0.25rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.375rem;
+}
+
+.sleep-quality-insights-item:last-child {
+  margin-bottom: 0;
+}
+
+.sleep-quality-insights-bullet {
+  width: 0.25rem;
+  height: 0.25rem;
+  background: #f59e0b;
+  border-radius: 50%;
+  margin-top: 0.375rem;
+  flex-shrink: 0;
+}
+
+.sleep-quality-tooltip {
+  background: rgba(15, 23, 42, 0.95);
+  backdrop-filter: blur(8px);
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.75rem;
+  color: white;
+  font-size: 0.875rem;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.25);
+}
+
+.sleep-quality-tooltip-label {
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.sleep-quality-tooltip-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.25rem;
+}
+
+.sleep-quality-tooltip-item:last-child {
+  margin-bottom: 0;
+}
+
+.sleep-quality-tooltip-name {
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+}
+
+.sleep-quality-tooltip-indicator {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+}
+
+.sleep-quality-tooltip-value {
+  font-weight: 500;
+}
+
+.sleep-quality-empty {
+  text-align: center;
+  padding: 3rem 1rem;
+  color: #64748b;
+}
+
+.sleep-quality-empty-icon {
+  width: 3rem;
+  height: 3rem;
+  margin: 0 auto 1rem;
+  color: #cbd5e1;
+}
+
+.sleep-quality-empty-title {
+  font-size: 1.125rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.sleep-quality-empty-description {
+  font-size: 0.875rem;
+}
+
+.sleep-quality-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 300px;
+  color: #64748b;
+}
+
+.sleep-quality-loading-spinner {
+  width: 2rem;
+  height: 2rem;
+  border: 2px solid #e5e7eb;
+  border-radius: 50%;
+  border-top-color: #8b5cf6;
+  animation: spin 1s ease-in-out infinite;
+  margin-right: 0.75rem;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .sleep-quality-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  
+  .sleep-quality-metrics {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  
+  .sleep-quality-chart {
+    height: 250px;
+  }
+  
+  .sleep-quality-legend {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  
+  .sleep-quality-metric-value {
+    font-size: 1.25rem;
+  }
+}

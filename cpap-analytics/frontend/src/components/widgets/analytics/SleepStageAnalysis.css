@@ -1,0 +1,328 @@
+/* SleepStageAnalysis.css - Sleep stage analysis widget styling */
+
+.sleep-stage-analysis {
+  background: var(--glass-bg, rgba(255, 255, 255, 0.1));
+  backdrop-filter: var(--backdrop-blur, blur(16px));
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.sleep-stage-analysis:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+/* Header */
+.sleep-stage-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.sleep-stage-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  background: linear-gradient(135deg, #8b5cf6 0%, #ec4899 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.sleep-efficiency-badge {
+  padding: 0.25rem 0.75rem;
+  background: linear-gradient(135deg, #8b5cf6 0%, #ec4899 100%);
+  color: white;
+  border-radius: 20px;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+/* Sleep Stage Chart */
+.sleep-stage-chart-container {
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  min-height: 250px;
+}
+
+.sleep-timeline {
+  position: relative;
+  height: 120px;
+  background: linear-gradient(90deg, rgba(75, 85, 99, 0.1) 0%, rgba(75, 85, 99, 0.05) 100%);
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.sleep-timeline-track {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.stage-segment {
+  height: 100%;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  position: relative;
+}
+
+.stage-segment:hover {
+  opacity: 0.8;
+  transform: scaleY(1.05);
+}
+
+.stage-awake { background: linear-gradient(180deg, #ef4444 0%, #dc2626 100%); }
+.stage-rem { background: linear-gradient(180deg, #8b5cf6 0%, #7c3aed 100%); }
+.stage-light { background: linear-gradient(180deg, #3b82f6 0%, #2563eb 100%); }
+.stage-deep { background: linear-gradient(180deg, #1e40af 0%, #1e3a8a 100%); }
+
+.stage-tooltip {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.9);
+  color: white;
+  padding: 0.5rem;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 10;
+}
+
+.stage-segment:hover .stage-tooltip {
+  opacity: 1;
+}
+
+/* Sleep Stages Legend */
+.sleep-stages-legend {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.legend-item:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-1px);
+}
+
+.legend-color {
+  width: 16px;
+  height: 16px;
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+
+.legend-info {
+  flex: 1;
+}
+
+.legend-label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-text-primary);
+  margin-bottom: 0.125rem;
+}
+
+.legend-duration {
+  font-size: 0.75rem;
+  color: var(--color-text-secondary);
+}
+
+.legend-percentage {
+  font-size: 0.75rem;
+  color: var(--color-primary-500);
+  font-weight: 600;
+}
+
+/* Sleep Metrics */
+.sleep-metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.sleep-metric {
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.sleep-metric:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-1px);
+}
+
+.sleep-metric-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-primary-500);
+  margin-bottom: 0.25rem;
+}
+
+.sleep-metric-label {
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+}
+
+.sleep-metric-trend {
+  font-size: 0.75rem;
+  margin-top: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+}
+
+/* Sleep Quality Score */
+.sleep-quality-score {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1.5rem;
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.1) 0%, rgba(236, 72, 153, 0.1) 100%);
+  border-radius: 12px;
+  border: 1px solid rgba(139, 92, 246, 0.2);
+  margin-bottom: 1.5rem;
+}
+
+.quality-score-circle {
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+
+.quality-score-value {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-primary-500);
+}
+
+.quality-score-info {
+  flex: 1;
+}
+
+.quality-score-title {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: var(--color-text-primary);
+}
+
+.quality-score-description {
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+  line-height: 1.4;
+}
+
+/* Actions */
+.sleep-stage-actions {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.stage-action-button {
+  flex: 1;
+  padding: 0.75rem 1rem;
+  background: var(--glass-bg);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  color: var(--color-text-primary);
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.stage-action-button:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: var(--color-primary-500);
+  transform: translateY(-1px);
+}
+
+.stage-action-button.primary {
+  background: linear-gradient(135deg, #8b5cf6 0%, #ec4899 100%);
+  border: none;
+  color: white;
+}
+
+.stage-action-button.primary:hover {
+  box-shadow: 0 4px 16px rgba(139, 92, 246, 0.3);
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .sleep-stage-analysis {
+    padding: 1rem;
+  }
+
+  .sleep-stages-legend {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .sleep-metrics-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .sleep-stage-actions {
+    flex-direction: column;
+  }
+
+  .quality-score-score {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+/* Loading & Empty States */
+.sleep-stage-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 350px;
+  color: var(--color-text-secondary);
+}
+
+.sleep-stage-empty {
+  text-align: center;
+  padding: 3rem;
+  color: var(--color-text-secondary);
+}
+
+.stage-empty-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  opacity: 0.5;
+}
