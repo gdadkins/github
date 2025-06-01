@@ -6,6 +6,9 @@ export interface User {
   is_active: boolean;
   name?: string;
   full_name?: string;
+  subscription?: {
+    tier: 'free' | 'premium' | 'pro';
+  };
 }
 
 export interface AuthContextType {
@@ -49,6 +52,7 @@ export interface AnalyticsSummary {
   avg_quality: number;
   avg_duration: number;
   avg_leak: number;
+  compliance_rate: number;
 }
 
 export interface TrendData {

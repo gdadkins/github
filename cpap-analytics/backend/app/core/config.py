@@ -26,7 +26,7 @@ class Settings:
         "*"  # Temporary: Allow all origins for debugging
     ]
     
-    # Database (use same database as Flask backend)
+    # Database
     DATABASE_URL: str = os.getenv("DATABASE_URL", "sqlite:///./cpap_analytics.db")
     
     # File Storage

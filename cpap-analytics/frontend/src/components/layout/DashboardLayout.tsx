@@ -50,25 +50,17 @@ const SortableWidget: React.FC<SortableWidgetProps> = ({ widget, onRemove, onRes
 
   const Component = widget.component;
 
-  // Debug logging
-  console.log(`Widget ${widget.id}:`, {
-    component: Component,
-    type: typeof Component,
-    isFunction: typeof Component === 'function',
-    isValid: Component && (typeof Component === 'function' || (typeof Component === 'object' && Component.$$typeof)),
-    keys: Component ? Object.keys(Component) : 'null',
-    $$typeof: Component?.$$typeof,
-    name: Component?.name || Component?.displayName
-  });
 
-  // Check if component is valid React component
-  if (!Component || 
-      (typeof Component !== 'function' && 
-       !(typeof Component === 'object' && 
-         (Component.$$typeof === Symbol.for('react.element') || 
-          Component.$$typeof === Symbol.for('react.forward_ref') ||
-          Component.$$typeof === Symbol.for('react.memo') ||
-          Component.$$typeof === Symbol.for('react.lazy'))))) {
+  // Component validation for React components (including lazy components)
+  const isValidComponent = Component && (
+    typeof Component === 'function' || 
+    (Component as any).$$typeof === Symbol.for('react.lazy') ||
+    (Component as any).$$typeof === Symbol.for('react.forward_ref') ||
+    (Component as any).$$typeof === Symbol.for('react.memo') ||
+    (Component as any).$$typeof
+  );
+  
+  if (!isValidComponent) {
     return (
       <div
         ref={setNodeRef}
@@ -190,7 +182,12 @@ const DashboardLayout: React.FC<DashboardLayoutProps> = ({
         setWidgets(mergedWidgets);
       } catch (e) {
         console.error('Failed to load saved layout:', e);
+        // Fallback to initial widgets if saved layout is corrupted
+        setWidgets(initialWidgets);
       }
+    } else {
+      // No saved layout, use initial widgets
+      setWidgets(initialWidgets);
     }
   }, [layout, initialWidgets]);
 

@@ -158,7 +158,7 @@
 }
 
 .user-subscription::before {
-  content: '👑';
+  content: '•';
   font-size: 0.625rem;
 }
 

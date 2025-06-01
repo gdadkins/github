@@ -315,6 +315,11 @@ This file tracks ongoing tasks, improvements, and technical debt for the CPAP An
   - Implemented Trend Analysis widget with multi-metric line charts
   - Implemented Event Patterns widget with pie chart and time distribution
   - Implemented Equipment Health widget with component tracking
+- ~~Authentication error: "Cannot read properties of null (reading 'id')"~~ ✅ Fixed (2025-06-01)
+  - Fixed useAuth hook import conflict in Login component
+  - Fixed EnhancedDashboard receiving null user prop instead of actual user
+  - Added null safety guards with optional chaining (user?.id) throughout dashboard
+  - Added early return for null user states to prevent runtime errors
 - No offline support
 - Session data not cached locally
 - No optimistic updates

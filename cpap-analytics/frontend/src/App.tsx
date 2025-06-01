@@ -6,7 +6,6 @@ import ClinicalAppShell from './components/clinical/ClinicalAppShell'
 import './styles/clinical-design-system.css'
 
 // Lazy load components for better performance
-const ClinicalDashboard = React.lazy(() => import('./components/clinical/ClinicalDashboard'))
 const EnhancedDashboard = React.lazy(() => import('./components/EnhancedDashboard'))
 const ClinicalLogin = React.lazy(() => import('./components/clinical/ClinicalLogin'))
 
@@ -36,8 +35,6 @@ const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => 
           .finally(() => {
             setLoading(false)
           })
-      }).catch(() => {
-        setLoading(false)
       })
     } else {
       setLoading(false)
@@ -51,7 +48,7 @@ const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => 
   )
 }
 
-const useAuth = () => React.useContext(AuthContext)
+export const useAuth = () => React.useContext(AuthContext)
 
 // Protected Route component
 const ProtectedRoute: React.FC<{ children: React.ReactNode }> = ({ children }) => {
@@ -75,11 +72,6 @@ const PublicRoute: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   return user ? <Navigate to="/dashboard" replace /> : <>{children}</>
 }
 
-// Dashboard wrapper with clinical layout
-const DashboardWithLayout: React.FC = () => {
-  return <ClinicalDashboard />
-}
-
 // Enhanced Dashboard wrapper
 const EnhancedDashboardWrapper: React.FC = () => {
   const { user, setUser } = useAuth()
@@ -94,50 +86,47 @@ const EnhancedDashboardWrapper: React.FC = () => {
 
 const App: React.FC = () => {
   return (
-    <Router>
-      <ErrorBoundary>
-        <Suspense fallback={<LoadingSpinner />}>
-          <Routes>
-            <Route path="/" element={<Navigate to="/dashboard" replace />} />
-            <Route
-              path="/login"
-              element={
-                <PublicRoute>
-                  <ClinicalLogin />
-                </PublicRoute>
-              }
-            />
-            <Route
-              path="/"
-              element={
-                <ProtectedRoute>
-                  <ClinicalAppShell />
-                </ProtectedRoute>
-              }
-            >
-              <Route path="dashboard" element={<EnhancedDashboardWrapper />} />
-              <Route path="compliance" element={<div>Compliance View</div>} />
-              <Route path="analytics" element={<div>Analytics View</div>} />
-              <Route path="reports" element={<div>Reports View</div>} />
-              <Route path="equipment" element={<div>Equipment View</div>} />
-              <Route path="insights" element={<div>AI Insights View</div>} />
-              <Route path="profile" element={<div>Profile Settings</div>} />
-              <Route path="subscription" element={<div>Subscription Management</div>} />
-            </Route>
-          </Routes>
-        </Suspense>
-      </ErrorBoundary>
-    </Router>
-  )
-}
-
-const AppWithProvider: React.FC = () => {
-  return (
     <AuthProvider>
-      <App />
+      <Router>
+        <ErrorBoundary>
+          <Suspense fallback={<LoadingSpinner />}>
+            <Routes>
+              <Route path="/" element={<Navigate to="/dashboard" replace />} />
+              
+              {/* Public Routes */}
+              <Route
+                path="/login"
+                element={
+                  <PublicRoute>
+                    <ClinicalLogin />
+                  </PublicRoute>
+                }
+              />
+              
+              {/* Clinical Dashboard Route */}
+              <Route
+                path="/"
+                element={
+                  <ProtectedRoute>
+                    <ClinicalAppShell />
+                  </ProtectedRoute>
+                }
+              >
+                <Route path="dashboard" element={<EnhancedDashboardWrapper />} />
+                <Route path="compliance" element={<div>Compliance View</div>} />
+                <Route path="analytics" element={<div>Analytics View</div>} />
+                <Route path="reports" element={<div>Reports View</div>} />
+                <Route path="patients" element={<div>Patient Management</div>} />
+                <Route path="settings" element={<div>Settings</div>} />
+                <Route path="profile" element={<div>Profile Settings</div>} />
+                <Route path="subscription" element={<div>Subscription Management</div>} />
+              </Route>
+            </Routes>
+          </Suspense>
+        </ErrorBoundary>
+      </Router>
     </AuthProvider>
   )
 }
 
-export default AppWithProvider
-export { AuthContext, useAuth }
+export default App

@@ -1,13 +1,45 @@
 # Claude Code Development Guidelines for CPAP Analytics
 
 ## Core Philosophy
-**Ship working solutions quickly and iterate**
-- Bias toward action over analysis
+
 - Security basics always included
 - Always reference and update TODO.md to ensure anything pending is marked complete.
-- Never include Claude Code attribution in git 🤖 Generated with [Claude Code](https://claude.ai/code)         Co-Authored-By: Claude <noreply@anthropic.com>"
-- Always adhere to modular based component/module/code architecture and CSS for key components/module/code for easy of troubleshooting/implementations.
+- Always read and understand the codebase before implementing a new feature or bugfix
+- Always adhere to efficient best practices structured, modular based component/module/code architecture and CSS for components/module/code for easier troubleshooting/implementations/updates. CSS files need to ALWAYS stay concise in nature even on a per individual basis.
+- Never add the following to git updates or related: 🤖 Generated with [Claude Code](https://claude.ai/code) Co-Authored-By: Claude <noreply@anthropic.com>"
+- Never use emojis in backend code as it will cause unicode errors. Keep frontend to a professional oriented minimal as long as it doesn't cause syntax/unicode/problems/errors.
 - If you create any temporary new files, scripts, or helper files for iteration, clean up these files by removing them at the end of the task.
+- When removing any code, make sure to verify if any methods/etc related to it can also be safely removed. The less tech debt, the better health our codebase will be.
+
+## Code Refactoring Guidelines
+
+When refactoring code, follow these principles:
+
+- **SOLID principles**: Apply Single Responsibility Principle by breaking down large methods (>50 lines) into smaller, focused functions
+- **DRY methodology**: Eliminate code duplication by creating shared utility functions
+- **Extract constants**: Move magic numbers and configuration data to named constants
+- **Separation of concerns**: Separate data processing from presentation logic
+- **Static analysis**: Fix unused variables, type issues, and other warnings
+- **Testing**: Verify functionality through comprehensive testing after each change
+
+Goal: Improve maintainability, readability, and testability while preserving existing behavior.
+
+## Common Issues & Solutions
+
+### Authentication Error: "Cannot read properties of null (reading 'id')"
+**Fixed: 2025-06-01**
+
+**Root Cause**: The `useAuth` hook import conflict and null user prop handling in dashboard components.
+
+**Solutions Applied**:
+1. **Fixed useAuth Import Conflict**: Updated `Login.tsx` to import `useAuth` from `../App` instead of conflicting hook file
+2. **Fixed Null User Prop**: Updated `App.tsx` `EnhancedDashboardWrapper` to pass actual `user` instead of `null`
+3. **Added Null Safety**: Enhanced `EnhancedDashboard.tsx` with:
+   - Early return for null user: `if (!user) return <div>Loading...</div>`
+   - Safe property access: `user?.id || 0` instead of `user.id`
+   - Updated dependency array: `[dashboardData, dateRange, user?.id]`
+
+**Key Learning**: Always use optional chaining (`?.`) and nullish coalescing (`||`) when accessing user properties in React components to prevent runtime errors during authentication loading states.
 
 
 ## Project Overview

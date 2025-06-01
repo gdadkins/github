@@ -1,4 +1,5 @@
 import { Component, ErrorInfo, ReactNode } from 'react';
+import './ErrorBoundary.css';
 
 interface Props {
   children: ReactNode;
@@ -25,11 +26,11 @@ export class ErrorBoundary extends Component<Props, State> {
   public render() {
     if (this.state.hasError) {
       return (
-        <div className="min-h-screen flex items-center justify-center bg-gray-50">
-          <div className="max-w-md w-full bg-white shadow-lg rounded-lg p-6">
-            <div className="flex items-center justify-center w-12 h-12 mx-auto bg-red-100 rounded-full">
+        <div className="error-boundary-container">
+          <div className="error-card">
+            <div className="error-icon-container">
               <svg
-                className="w-6 h-6 text-red-600"
+                className="error-icon"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -42,15 +43,15 @@ export class ErrorBoundary extends Component<Props, State> {
                 ></path>
               </svg>
             </div>
-            <h1 className="mt-4 text-xl font-semibold text-gray-900 text-center">
+            <h1 className="error-title">
               Something went wrong
             </h1>
-            <p className="mt-2 text-sm text-gray-600 text-center">
+            <p className="error-message">
               {this.state.error?.message || 'An unexpected error occurred'}
             </p>
             <button
               onClick={() => window.location.reload()}
-              className="mt-4 w-full bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition-colors"
+              className="error-reload-button"
             >
               Reload Page
             </button>

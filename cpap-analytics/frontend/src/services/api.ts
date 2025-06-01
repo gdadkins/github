@@ -167,8 +167,8 @@ class ApiService {
         ],
         statistics: {
           total_nights: analyticsResponse.summary?.total_sessions || 0,
-          average_ahi: analyticsResponse.summary?.avg_ahi || 0,
-          average_duration_hours: analyticsResponse.summary?.avg_duration || 0,
+          average_ahi: parseFloat((analyticsResponse.summary?.avg_ahi || 0).toFixed(1)),
+          average_duration_hours: parseFloat((analyticsResponse.summary?.avg_duration || 0).toFixed(1)),
           compliance_rate_percent: compliance_rate,
           date_range: {
             first_session: first_session,

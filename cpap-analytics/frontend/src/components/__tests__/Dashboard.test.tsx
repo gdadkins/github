@@ -1,4 +1,3 @@
-import React from 'react';
 import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import Dashboard from '../Dashboard';
@@ -68,7 +67,7 @@ const mockOnLogout = jest.fn();
 describe('Dashboard Component', () => {
   beforeEach(() => {
     jest.clearAllMocks();
-    mockApiService.getProfile.mockResolvedValue(mockProfile);
+    mockApiService.getUserProfile.mockResolvedValue(mockProfile);
     mockApiService.getAnalytics.mockResolvedValue(mockAnalytics);
   });
 
@@ -84,7 +83,7 @@ describe('Dashboard Component', () => {
       expect(screen.getByText('Welcome, testuser!')).toBeInTheDocument();
     });
 
-    expect(mockApiService.getProfile).toHaveBeenCalled();
+    expect(mockApiService.getUserProfile).toHaveBeenCalled();
     expect(mockApiService.getAnalytics).toHaveBeenCalled();
   });
 
@@ -129,7 +128,7 @@ describe('Dashboard Component', () => {
   });
 
   it('handles API errors gracefully', async () => {
-    mockApiService.getProfile.mockRejectedValue(new Error('API Error'));
+    mockApiService.getUserProfile.mockRejectedValue(new Error('API Error'));
     mockApiService.getAnalytics.mockRejectedValue(new Error('API Error'));
 
     render(<Dashboard onLogout={mockOnLogout} />);

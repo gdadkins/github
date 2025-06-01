@@ -7,38 +7,48 @@ interface QuickMetricsProps {
 }
 
 const QuickMetrics: React.FC<QuickMetricsProps> = ({ data, dateRange }) => {
+  // Extract values from analytics data structure or use defaults
+  const ahi = data?.summary?.avg_ahi ?? 3.2;
+  const avgDuration = data?.summary?.avg_duration ?? 7.2;
+  const avgLeak = data?.summary?.avg_leak ?? 18;
+  
+  // Calculate compliance based on sessions with 4+ hours usage
+  const compliance = data?.recent_sessions ? 
+    Math.round((data.recent_sessions.filter((s: any) => s.duration_hours >= 4).length / data.recent_sessions.length) * 100) : 
+    92;
+
   const metrics = [
     {
-      value: data?.ahi || '3.2',
+      value: ahi.toFixed(1),
       label: 'AHI',
-      status: 'good',
-      icon: '🎯',
+      status: ahi < 5 ? 'excellent' : ahi < 15 ? 'good' : ahi < 30 ? 'warning' : 'poor',
+      icon: 'target',
       trend: '↓ 12%',
       description: 'Apnea-Hypopnea Index'
     },
     {
-      value: data?.compliance || '92%',
+      value: `${compliance}%`,
       label: 'Compliance',
-      status: 'excellent',
-      icon: '✓',
+      status: compliance >= 90 ? 'excellent' : compliance >= 70 ? 'good' : compliance >= 50 ? 'warning' : 'poor',
+      icon: 'check',
       trend: '↑ 5%',
       description: 'Insurance compliance rate'
     },
     {
-      value: data?.avgUsage || '7.2h',
+      value: `${avgDuration.toFixed(1)}h`,
       label: 'Avg Usage',
-      status: 'good',
-      icon: '⏱',
+      status: avgDuration >= 7 ? 'excellent' : avgDuration >= 4 ? 'good' : avgDuration >= 2 ? 'warning' : 'poor',
+      icon: 'clock',
       trend: '→ 0%',
       description: 'Average nightly usage'
     },
     {
-      value: data?.leakRate || '18',
+      value: `${avgLeak.toFixed(0)}`,
       label: 'Leak Rate',
-      status: 'warning',
-      icon: '💨',
+      status: avgLeak <= 20 ? 'good' : avgLeak <= 30 ? 'warning' : 'poor',
+      icon: 'alert',
       trend: '↑ 8%',
-      description: 'L/min mask leak'
+      description: 'L/min mask leak rate'
     }
   ];
 
@@ -60,7 +70,7 @@ const QuickMetrics: React.FC<QuickMetricsProps> = ({ data, dateRange }) => {
       <div className="metrics-grid">
         {metrics.map((metric, index) => (
           <div key={index} className={`metric-item ${metric.status}`}>
-            <div className="metric-icon">{metric.icon}</div>
+            <div className={`metric-icon ${metric.icon}`} aria-label={metric.description}></div>
             <div className="metric-content">
               <div className="metric-value">{metric.value}</div>
               <div className="metric-label">{metric.label}</div>

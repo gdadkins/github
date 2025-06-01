@@ -142,7 +142,7 @@ describe('API Service', () => {
         status: 200,
       } as Response);
 
-      const result = await apiService.getProfile();
+      const result = await apiService.getUserProfile();
 
       expect(mockFetch).toHaveBeenCalledWith(
         'http://localhost:5000/api/auth/profile',
@@ -167,7 +167,7 @@ describe('API Service', () => {
         json: async () => ({ detail: 'Invalid token' })
       } as Response);
 
-      await expect(apiService.getProfile()).rejects.toThrow('Invalid token');
+      await expect(apiService.getUserProfile()).rejects.toThrow('Invalid token');
       expect(mockLocalStorage.removeItem).toHaveBeenCalledWith('access_token');
     });
   });
@@ -266,7 +266,7 @@ describe('API Service', () => {
         status: 200,
       } as Response);
 
-      await apiService.getProfile();
+      await apiService.getUserProfile();
 
       expect(mockFetch).toHaveBeenCalledWith(
         expect.any(String),
@@ -287,7 +287,7 @@ describe('API Service', () => {
         json: async () => ({ detail: 'Token expired' })
       } as Response);
 
-      await expect(apiService.getProfile()).rejects.toThrow();
+      await expect(apiService.getUserProfile()).rejects.toThrow();
       expect(mockLocalStorage.removeItem).toHaveBeenCalledWith('access_token');
     });
   });
